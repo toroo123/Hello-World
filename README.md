@@ -7,7 +7,7 @@ import java.awt.List;
 import java.util.*;
 
 
-public class lab_1 {
+public class CS311 {
 
 	static Scanner sc = new Scanner(System.in);
 	static Queue<Integer> list = new LinkedList<>();
@@ -32,6 +32,16 @@ public class lab_1 {
 		 
 	        System.out.println(list);
 	}
+	public static void peek() {
+		int pee = list.peek();
+		System.out.println("хамгийн эхний element бол " +pee);
+	}
+	public static void poll() {
+		System.out.println(list.poll());
+	}
+	public static void view() {
+		System.out.println(list);
+	}
 	
 	
     public static void main(String args[]) {
@@ -46,7 +56,7 @@ public class lab_1 {
 		 
 		 System.out.println("өгнө тоонууд " +list);
 
-		 System.out.println("1. max\n 2. remove\n3. add\n");
+		 System.out.println("1. max\n 2. remove\n3. add\n4. peek\n5. poll\n6. view\n");
 		 int output = sc.nextInt();
 		 
 		try {
@@ -72,13 +82,22 @@ public class lab_1 {
 					 }
 					 System.out.println(list);
 					 break;
+				 case 4:
+					 peek();
+					 break;
+				 case 5:
+					 poll();
+					 break;
+				 case 6:
+					 view();
+					 break;
 				 case 9: 
-					
-                 	 default:
+					 System.out.println("сонголтууд:\n" + "1.max\n2. remove\n3. add\n4. peek\n5. poll\n6. view\n");
+					 System.out.println("\n таны сонголт: ");
+				 default:
 				 }
-				 System.out.println("сонголтууд:\n" + "1.max\n2. remove\n3. add\n");
 				 System.out.println("сонголтуудыг хархаар бол 9-ийг өгнө үү?");
-                 System.out.println("\n таны сонголт: ");
+				 System.out.println("программыг дуусгах бол 0-ийг өгнө үү?");
                  output = sc.nextInt();
 			}
             System.out.println("System ends:");
@@ -90,4 +109,3 @@ public class lab_1 {
 		  
     }
 }
-
