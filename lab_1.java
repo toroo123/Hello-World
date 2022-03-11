@@ -81,7 +81,7 @@ public class lab_1 {
 					 break;
 				 case 9: 
 					 System.out.println("сонголтууд:\n" + "1.max\n2. remove\n3. add\n4. peek\n5. poll\n6. view\n");
-					 System.out.println("\n таны сонголт: !xaxa");
+					 System.out.println("\n таны сонголт: !xa");
 				 default:
 				 }
 				 System.out.println("сонголтуудыг хархаар бол 9-ийг өгнө үү?");
