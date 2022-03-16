@@ -6,12 +6,8 @@ import java.util.Scanner;
 import java.awt.List;
 import java.util.*;
 
-
 public class lab_1 {
-
-	static Scanner sc = new Scanner(System.in);
-	static Queue<Integer> list = new LinkedList<>();
-	
+	static Queue<Integer> list = new LinkedList<Integer>();
 	public static void max() {
 		Object a = new Object();
 		a= ((LinkedList<Integer>) list).get(0);
@@ -33,13 +29,14 @@ public class lab_1 {
 	public static void poll() {
 		System.out.println(list.poll());
 	}
-	public static void view() {
-		System.out.println(list);
+	void view() {
+		char[] list;
+		//System.out.println(list);
 	}
 	
-	
-    public static void main(String args[]) {
-    
+public static void main(String args[]) {
+    	
+    	Scanner sc = new Scanner(System.in);
     	System.out.println("та тоонуудаа оруулж өгнө үү?");
     	System.out.println("оруулж дууссан бол 0-ийн тоог өгч дуусгана уу.");
 		 int input = sc.nextInt();
@@ -77,7 +74,7 @@ public class lab_1 {
 					 poll();
 					 break;
 				 case 6:
-					 view();
+					 //view();
 					 break;
 				 case 9: 
 					 System.out.println("сонголтууд:\n" + "1.max\n2. remove\n3. add\n4. peek\n5. poll\n6. view\n");
@@ -96,5 +93,6 @@ public class lab_1 {
         }
 		  
     }
+	
 }
 
