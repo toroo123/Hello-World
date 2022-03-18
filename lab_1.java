@@ -3,48 +3,49 @@ package CS311;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+
 import java.awt.List;
 import java.util.*;
 
-public class lab_1 {
-	static Queue<Integer> list = new LinkedList<Integer>();
-	public static void max() {
+class GenQueue<E> {
+
+	private Queue<E> list = new LinkedList<E>();
+	
+	public Queue<E> add(E num) {
+		((LinkedList<E>) list).add(num);
+		return list;
+	}
+	public String max() {
 		Object a = new Object();
-		a= ((LinkedList<Integer>) list).get(0);
+		a= ((LinkedList<E>) list).get(0);
 		
 		for(int i=1; i<list.size(); i++)
 			if((int)a<(int) ((LinkedList<Integer>) list).get(i)) {
 				a = ((LinkedList<Integer>) list).get(i);
 			}
-		System.out.println("max: " + a);
+		return ("max: " + a);
 	}
-	public static void remove() {
-				int removedele = list.remove();
-				System.out.println(list);
+	public Queue<E> remove() {
+				E removedele = list.remove();
+				return list;
 	}
-	public static void peek() {
-		int pee = list.peek();
-		System.out.println("хамгийн эхний element бол " +pee);
+	public int peek() {
+		int pee = (int) list.peek();
+		return pee;
 	}
-	public static void poll() {
-		System.out.println(list.poll());
+	public int poll() {
+		return (int) list.poll();
 	}
-	void view() {
-		char[] list;
-		//System.out.println(list);
+	public char[] view() {
+		char[] list = null ;
+		return list;
 	}
 	
-public static void main(String args[]) {
+public class lab_1 {
+		public void main(String args[]) {
     	
     	Scanner sc = new Scanner(System.in);
-    	System.out.println("та тоонуудаа оруулж өгнө үү?");
-    	System.out.println("оруулж дууссан бол 0-ийн тоог өгч дуусгана уу.");
-		 int input = sc.nextInt();
-		 while(input != 0) {
-			 list.add(input);
-			 input = sc.nextInt();
-		 }
-		 
+    	
 		 System.out.println("өгнө тоонууд " +list);
 
 		 System.out.println("1. max\n 2. remove\n3. add\n4. peek\n5. poll\n6. view\n");
@@ -55,6 +56,10 @@ public static void main(String args[]) {
 				int index;
 				 
 				 switch(output) {
+				 case 0:
+					 E num = (E) sc.next();
+					 add(num);
+					 break;
 				 case 1:
 					 max();
 					 break;
@@ -63,7 +68,7 @@ public static void main(String args[]) {
 					 break;
 				 case 3:
 					 System.out.println("та хэдийн тоо оруулах вэ?");
-					 int a = sc.nextInt();
+					 E a = (E) sc.next();
 						 list.add(a);
 					 System.out.println(list);
 					 break;
@@ -93,6 +98,20 @@ public static void main(String args[]) {
         }
 		  
     }
-	
-}
+	}
 
+}
+ class Employee {
+	  public Integer number;
+
+	  public Employee() {
+	  }
+
+	  public Employee(Integer num) {
+	    this.number = num;
+	  }
+
+	  public Integer toInteger() {
+	    return number;
+	  }
+	}
