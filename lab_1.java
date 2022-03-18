@@ -93,7 +93,7 @@ public class lab_1 {
             System.out.println("System ends:");
             sc.close();
 		}catch(Exception e) {
-            System.out.println("input aldaa garlaa"+e);
+            System.out.println("oroltond aldaa garlaa"+e);
             main(args);
         }
 		  
