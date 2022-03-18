@@ -86,7 +86,7 @@ public class lab_1 {
 					 System.out.println("\n таны сонголт: ");
 				 default:
 				 }
-				 System.out.println("сонголтуудыг хархаар бол 9-ийг өгнө үү?");
+				 System.out.println("сонголтуудыг сонгохоор бол 9-ийг өгнө үү?");
 				 System.out.println("программыг дуусгах бол 0-ийг өгнө үү?");
                  output = sc.nextInt();
 			}
