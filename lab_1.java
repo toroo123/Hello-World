@@ -1,53 +1,85 @@
 package CS311;
-
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
-
-import java.awt.List;
 import java.util.*;
 
-class GenQueue<E> {
 
-	private Queue<E> list = new LinkedList<E>();
+class Queue<T> {
+
+	int front = -1, rear = -1;
+	private LinkedList<T> list = new LinkedList<T>();
+    ArrayList<T> A = new ArrayList<>();
+ 
+    T front()
+    {
+        if (front == -1)
+ 
+            return null;
+        return A.get(front);
+    }
+    T rear()
+    {
+        if (rear == -1)
+            return null;
+        return A.get(rear);
+    }
+    void enqueue(T X)
+    {
+        if (this.empty()) {
+            front = 0;
+            rear = 0;
+            A.add(X);
+        }
+ 
+        else {
+            front++;
+            if (A.size() > front) {
+ 
+                A.set(front, X);
+            }
+            else
+ 
+                A.add(X);
+        }
+    }
 	
-	public Queue<E> add(E num) {
-		((LinkedList<E>) list).add(num);
-		return list;
+	private boolean empty() {
+		if (front == -1 && rear == -1)
+            return true;
+		return false;
 	}
-	public String max() {
-		Object a = new Object();
-		a= ((LinkedList<E>) list).get(0);
-		
-		for(int i=1; i<list.size(); i++)
-			if((int)a<(int) ((LinkedList<Integer>) list).get(i)) {
-				a = ((LinkedList<Integer>) list).get(i);
-			}
-		return ("max: " + a);
+	public int size() {
+		ArrayList<T> list = A;
+		return list.size();
 	}
-	public Queue<E> remove() {
-				E removedele = list.remove();
-				return list;
-	}
-	public int peek() {
-		int pee = (int) list.peek();
-		return pee;
-	}
-	public int poll() {
-		return (int) list.poll();
-	}
-	public char[] view() {
-		char[] list = null ;
-		return list;
-	}
+	public boolean hasItems() {
+	    return !A.isEmpty();
+	  }
+
+//	public static void peek() {
+//		int pee = list.peek();
+//		System.out.println("хамгийн эхний element бол " +pee);
+//	}
+
+//		public static int view() {
+//		return list1;
+//	}
+		public T poll() {
+			T a = ((Deque<T>) A).poll();
+			return a;
+		}
+}
+public class lab_1{
 	
-public class lab_1 {
-		public void main(String args[]) {
-    	
+    public static void main(String args[]) {
+    
     	Scanner sc = new Scanner(System.in);
-    	
+    	Queue<Integer> list = new Queue<>();
+		 
+		 list.enqueue(7);
+		 list.enqueue(6);
+		 list.enqueue(5);
+		 list.enqueue(4);
+		 list.enqueue(3);
 		 System.out.println("өгнө тоонууд " +list);
-
 		 System.out.println("1. max\n 2. remove\n3. add\n4. peek\n5. poll\n6. view\n");
 		 int output = sc.nextInt();
 		 
@@ -56,34 +88,31 @@ public class lab_1 {
 				int index;
 				 
 				 switch(output) {
-				 case 0:
-					 E num = (E) sc.next();
-					 add(num);
-					 break;
 				 case 1:
-					 max();
+					 System.out.println(list.size());
 					 break;
 				 case 2:
-					 remove();
+					 System.out.println(list.hasItems());
 					 break;
 				 case 3:
 					 System.out.println("та хэдийн тоо оруулах вэ?");
-					 E a = (E) sc.next();
-						 list.add(a);
+					 int a = sc.nextInt();
+						 list.enqueue(a);
 					 System.out.println(list);
 					 break;
 				 case 4:
-					 peek();
+//					 
 					 break;
 				 case 5:
-					 poll();
+					 System.out.println(list.poll()); 
 					 break;
 				 case 6:
-					 //view();
+//					 System.out.println(list.view()); 
 					 break;
 				 case 9: 
 					 System.out.println("сонголтууд:\n" + "1.max\n2. remove\n3. add\n4. peek\n5. poll\n6. view\n");
-					 System.out.println("\n таны сонголт: ");
+					 System.out.println("\n таны сонголт: !!");
+					 System.out.println("\n таны сонголт: !xaxa");
 				 default:
 				 }
 				 System.out.println("сонголтуудыг сонгохоор бол 9-ийг өгнө үү?");
@@ -98,20 +127,4 @@ public class lab_1 {
         }
 		  
     }
-	}
-
 }
- class Employee {
-	  public Integer number;
-
-	  public Employee() {
-	  }
-
-	  public Employee(Integer num) {
-	    this.number = num;
-	  }
-
-	  public Integer toInteger() {
-	    return number;
-	  }
-	}
