@@ -1,13 +1,12 @@
-package CS311;
+package dome;
 import java.util.*;
 
 
 class Queue<T> {
 
 	int front = -1, rear = -1;
-	private LinkedList<T> list = new LinkedList<T>();
     ArrayList<T> A = new ArrayList<>();
- 
+    
     T front()
     {
         if (front == -1)
@@ -21,22 +20,11 @@ class Queue<T> {
             return null;
         return A.get(rear);
     }
+    
+   
     void enqueue(T X)
     {
         if (this.empty()) {
-            front = 0;
-            rear = 0;
-            A.add(X);
-        }
- 
-        else {
-            front++;
-            if (A.size() > front) {
- 
-                A.set(front, X);
-            }
-            else
- 
                 A.add(X);
         }
     }
@@ -59,15 +47,22 @@ class Queue<T> {
 //		System.out.println("хамгийн эхний element бол " +pee);
 //	}
 
-//		public static int view() {
-//		return list1;
-//	}
 		public T poll() {
 			T a = ((Deque<T>) A).poll();
 			return a;
 		}
+
+		void dequeue() {
+			if(this.empty()) {
+				System.out.println("queue хоосон байна");
+			}else if (front == rear) {
+				front=rear=-1;
+			}else {
+				rear++;
+			}
+		}
 }
-public class lab_1{
+public class dome_1{
 	
     public static void main(String args[]) {
     
@@ -80,7 +75,7 @@ public class lab_1{
 		 list.enqueue(4);
 		 list.enqueue(3);
 		 System.out.println("өгнө тоонууд " +list);
-		 System.out.println("1. max\n 2. remove\n3. add\n4. peek\n5. poll\n6. view\n");
+		 System.out.println("1. size\n 2. hasItems\n3. add\n4. remove\n5. poll\n6. view\n");
 		 int output = sc.nextInt();
 		 
 		try {
@@ -98,19 +93,19 @@ public class lab_1{
 					 System.out.println("та хэдийн тоо оруулах вэ?");
 					 int a = sc.nextInt();
 						 list.enqueue(a);
-					 System.out.println(list);
+					 System.out.println(list.A);
 					 break;
 				 case 4:
-//					 
+					 list.dequeue();
 					 break;
 				 case 5:
 					 System.out.println(list.poll()); 
 					 break;
 				 case 6:
-//					 System.out.println(list.view()); 
+					 System.out.println(list.A); 
 					 break;
 				 case 9: 
-					 System.out.println("сонголтууд:\n" + "1.max\n2. remove\n3. add\n4. peek\n5. poll\n6. view\n");
+					 System.out.println("сонголтууд:\n" + "1. size\\n 2. hasItems\\n3. add\\n4. remove\\n5. poll\\n6. view\\n");
 					 System.out.println("\n таны сонголт: !!");
 					 System.out.println("\n таны сонголт: !xaxa");
 				 default:
