@@ -1,5 +1,7 @@
-package dome;
+package CS311;
+import java.io.*;
 import java.util.*;
+import java.util.LinkedList;
 
 
 class Queue<T> {
@@ -7,62 +9,84 @@ class Queue<T> {
 	int front = -1, rear = -1;
     ArrayList<T> A = new ArrayList<>();
     
-    T front()
-    {
-        if (front == -1)
- 
-            return null;
-        return A.get(front);
-    }
-    T rear()
-    {
-        if (rear == -1)
-            return null;
-        return A.get(rear);
-    }
+//    T front()
+//    {
+//        if (front == -1) {
+//        	   return null;	
+//        }
+//        return A.get(front);
+//    }
+//    T rear()
+//    {
+//        if (rear == -1) {
+//        	   return null;	
+//        }
+//        return A.get(rear);
+//    }
     
    
     void enqueue(T X)
     {
         if (this.empty()) {
+            front = 0;
+            rear = 0;
+            A.add(X);
+        }
+        else {
+            front++;
+            if (A.size() > front) {
+            A.set(front, X);
+            }else
                 A.add(X);
         }
     }
 	
-	private boolean empty() {
-		if (front == -1 && rear == -1)
-            return true;
+	public boolean empty() {
+		if (front == -1 && rear == -1) {
+		   return true;	
+		}
 		return false;
 	}
 	public int size() {
 		ArrayList<T> list = A;
 		return list.size();
 	}
-	public boolean hasItems() {
-	    return !A.isEmpty();
-	  }
-
-//	public static void peek() {
-//		int pee = list.peek();
-//		System.out.println("хамгийн эхний element бол " +pee);
-//	}
-
+    
 		public T poll() {
 			T a = ((Deque<T>) A).poll();
 			return a;
 		}
 
-		void dequeue() {
-			if(this.empty()) {
-				System.out.println("queue хоосон байна");
-			}else if (front == rear) {
-				front=rear=-1;
-			}else {
-				rear++;
+		void dequeue()
+	    {
+	        if (this.empty()) {
+	        	System.out.println("Queue is already empty");	
+	        }
+	        else if (front == rear) {
+	            front = -1;
+	            rear = -1;
+	        }
+	        else {
+	            rear++;
+	        }
+	    }
+		
+		public String toString()
+		{
+			if (this.empty()) {
+				return "";
 			}
+			String Ans = "";
+			for (int i = rear; i < front; i++) {
+				Ans += String.valueOf(A.get(i)) + "->";
+			}
+
+			Ans += String.valueOf(A.get(front));
+
+			return Ans;
 		}
 }
-public class dome_1{
+public class lab_1{
 	
     public static void main(String args[]) {
     
@@ -72,10 +96,7 @@ public class dome_1{
 		 list.enqueue(7);
 		 list.enqueue(6);
 		 list.enqueue(5);
-		 list.enqueue(4);
-		 list.enqueue(3);
-		 System.out.println("өгнө тоонууд " +list);
-		 System.out.println("1. size\n 2. hasItems\n3. add\n4. remove\n5. poll\n6. view\n");
+		 System.out.println("1. size\n 2. empty\n3. add\n4. remove\n5. poll\n6. view\n");
 		 int output = sc.nextInt();
 		 
 		try {
@@ -87,16 +108,16 @@ public class dome_1{
 					 System.out.println(list.size());
 					 break;
 				 case 2:
-					 System.out.println(list.hasItems());
+					 System.out.println(list.empty());
 					 break;
 				 case 3:
 					 System.out.println("та хэдийн тоо оруулах вэ?");
 					 int a = sc.nextInt();
-						 list.enqueue(a);
-					 System.out.println(list.A);
+					 list.enqueue(a);
 					 break;
 				 case 4:
 					 list.dequeue();
+					 System.out.println(list.toString()); 
 					 break;
 				 case 5:
 					 System.out.println(list.poll()); 
