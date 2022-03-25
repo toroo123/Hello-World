@@ -9,20 +9,20 @@ class Queue<T> {
 	int front = -1, rear = -1;
     ArrayList<T> A = new ArrayList<>();
     
-//    T front()
-//    {
-//        if (front == -1) {
-//        	   return null;	
-//        }
-//        return A.get(front);
-//    }
-//    T rear()
-//    {
-//        if (rear == -1) {
-//        	   return null;	
-//        }
-//        return A.get(rear);
-//    }
+    T front()
+    {
+        if (front == -1) {
+        	   return null;	
+        }
+        return A.get(front);
+    }
+    T rear()
+    {
+        if (rear == -1) {
+        	   return null;	
+        }
+        return A.get(rear);
+    }
     
    
     void enqueue(T X)
@@ -52,9 +52,9 @@ class Queue<T> {
 		return list.size();
 	}
     
-		public T poll() {
-			T a = ((Deque<T>) A).poll();
-			return a;
+		public int peek() {
+			
+			return front;
 		}
 
 		void dequeue()
@@ -96,7 +96,7 @@ public class lab_1{
 		 list.enqueue(7);
 		 list.enqueue(6);
 		 list.enqueue(5);
-		 System.out.println("1. size\n 2. empty\n3. add\n4. remove\n5. poll\n6. view\n");
+		 System.out.println("1. size\n 2. empty\n3. add\n4. remove\n5. peek\n6. view\n");
 		 int output = sc.nextInt();
 		 
 		try {
@@ -117,18 +117,17 @@ public class lab_1{
 					 break;
 				 case 4:
 					 list.dequeue();
-					 System.out.println(list.toString()); 
 					 break;
 				 case 5:
-					 System.out.println(list.poll()); 
+					 System.out.println(list.peek()); 
 					 break;
 				 case 6:
-					 System.out.println(list.A); 
+					 System.out.println(list.toString()); 
 					 break;
 				 case 9: 
-					 System.out.println("сонголтууд:\n" + "1. size\\n 2. hasItems\\n3. add\\n4. remove\\n5. poll\\n6. view\\n");
+					 System.out.println("сонголтууд:\n" + "1. size\\n 2. hasItems\\n3. add\\n4. remove\\n5. peek\\n6. view\\n");
 					 System.out.println("\n таны сонголт: !!");
-					 System.out.println("\n таны сонголт: !xaxa");
+					 System.out.println("\n таны сонголт: !");
 				 default:
 				 }
 				 System.out.println("сонголтуудыг хархаар бол 9-ийг өгнө үү?");
