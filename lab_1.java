@@ -3,6 +3,7 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.awt.List;
 import java.util.*;
+import java.util.LinkedList;
 
 public class lab_1 {
 
@@ -19,6 +20,7 @@ public class lab_1 {
 			}
 		System.out.println("max: " + a);
 	}
+	// fdsfdsfsd
 	public static void remove() {
 				int removedele = list.remove();
 				System.out.println(list);
