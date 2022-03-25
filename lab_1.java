@@ -20,7 +20,6 @@ public class lab_1 {
 			}
 		System.out.println("max: " + a);
 	}
-	// fdsfdsfsd
 	public static void remove() {
 				int removedele = list.remove();
 				System.out.println(list);
