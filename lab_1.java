@@ -127,7 +127,7 @@ public class lab_1{
 				 case 9: 
 					 System.out.println("сонголтууд:\n" + "1. size\\n 2. hasItems\\n3. add\\n4. remove\\n5. peek\\n6. view\\n");
 					 System.out.println("\n таны сонголт: !!");
-					 System.out.println("\n таны сонголт: !");
+					 System.out.println("\n таны сонголт: !gg");
 				 default:
 				 }
 				 System.out.println("сонголтуудыг хархаар бол 9-ийг өгнө үү?");
